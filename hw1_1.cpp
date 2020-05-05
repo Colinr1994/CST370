@@ -5,70 +5,64 @@
  * Author: Colin Reed
  * ID: 1234
  * Date: 04/29/2020
- * HackerRank: https://www.hackerrank.com/contests/cst370-su20-hw0/challenges/370-hw0-1/submissions/code/1323171837
+ * HackerRank: https://www.hackerrank.com/contests/cst370-su20-hw1/challenges/common-nums
  */
 
 #include <iostream>
 using namespace std;
 
+
+
 int main()
 {
-	// Creating Variables and collecting arrays
-	int length;
-	int length2;
+//First take inputs for both arrays
+int length1, length2, i, j, swap;
+cin >> length1;
+int arr1[length1];
+for(i=0;i<length1;i++) {
+	cin >> arr1[i];
+}
+cin >> length2;
+int arr2[length2];
+for(i=0;i<length2;i++) {
+	cin >> arr2[i];
+}
 
 
-	cin >> length;
+// Sorting start
 
-	int arr[length];
-	int input;
-
-	for(int i=0; i<length;i++) {
-		cin >> input;
-		arr[i] = input;
-	};
-
-	cin >> length2;
-	int arr2[length2];
-	for(int i=0; i<length2;i++) {
-		cin >> input;
-		arr2[i] = input;
-	}
-	// Input Complete
-
-	int out[length];
-
-	int c=0;
-	for(int i=0; i<length; i++) {
-		for(int j=0; j<length2; j++) {
-			if(arr[i] == arr2[j]) {
-				out[i] =1;
-			}
+for(i=0; i<length1; i++) {
+	for (j=0; j<length1-i; j++) {
+		if( arr1[j] > arr1[j+1]) {
+			swap = arr1[j+1];
+			arr1[j+1] = arr1[j];
+			arr1[j] = swap;
 		}
 	}
+}
 
-	int count =0;
-	for(int i=0; i<length; i++) {
-		if(out[i]==1) {
-			count++;
+for(i=0; i<length2; i++) {
+	for (j=0; j<length2-i; j++) {
+		if( arr2[j] > arr2[j+1]) {
+			swap = arr2[j+1];
+			arr2[j+1] = arr2[j];
+			arr2[j] = swap;
 		}
 	}
+}
+// Sorting end
+// Using while instead of for
 
-	int end[count];
+// Still need to get rid of repetitions in array 1
 
-	int turn =0;
-	for(int i=0;i<length; i++) {
-		if(out[i]==1) {
-			end[turn] = arr[i];
-			turn++;
+cout << "Answer:";
+for(i=0; i<length1;i++) {
+	for(j=0; j<length2;j++) {
+		if(arr1[i]==arr2[j]) {
+			cout << " " << arr1[i];
 		}
 	}
-
-
-	for(int i=0; i<length; i++) {
-		cout << end[i] << endl;
-	}
-
+}
 
 	return 0;
 }
