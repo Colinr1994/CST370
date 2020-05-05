@@ -1,6 +1,6 @@
 /* Title: hw2_2.cpp
- * Abstract: This program reverses input numbers.
- * V1 - Strings; V2 - % (all int)
+ * Abstract:
+ * 
  *
  * Author: Colin Reed
  * ID: 1234
@@ -11,26 +11,24 @@
 #include <iostream>
 using namespace std;
 
-int clearString(string input) {
-  if (input.length = 4) {
-    
-  }
-  if (input.length = 5) {
-
-  }
+int toInt(string input) {
+  input.erase(2, 1);
+  input.erase(4, 1);
+  return stoi(input);
 }
 
 
 int main() {
+  string time;
+  int time1, time2, hours;
 
-  int num,out=0;
-  cin >> num;
+  cin >> time;
+  time1 = toInt(time);
 
-  while(num > 0) {
-    out = 10*out + num%10;
-    num/=10;
-  }
+  cin >> time;
+  time2 = toInt(time);
 
-  cout << out << endl;
+
+  cout << time1 << endl << time2 << endl;
   return 0;
 }
