@@ -5,7 +5,7 @@
  * Author: Colin Reed
  * ID: 1234
  * Date: 05/4/2020
- * HackerRank:
+ * HackerRank: https://www.hackerrank.com/contests/cst370-su20-hw2/challenges/adjacency-list/submissions/code/1323379255
  */
 
 #include <iostream>
@@ -23,7 +23,6 @@ int main() {
   bool data[vertices][vertices];
 
 
-// WTF
   for(x=0;x<vertices;x++) {
     for(y=0;y<vertices;y++) {
       data[x][y] = false;
@@ -31,11 +30,7 @@ int main() {
   }
 
   for (int i=0; i<edges;i++) {
-    // cin >> str;
-    // x = (int)str[0];
-    // x = (int)str[2];
-    cin >> x;
-    cin >> y;
+    cin >> x >> y;
     data[x][y] = true;
   }
 
