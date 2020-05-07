@@ -1,5 +1,5 @@
-/* Title: hw2_3.cpp
- * Abstract: This program converts user input directed graph data into adjacent list format.
+/* Title: hw3_1.cpp
+ * Abstract: 
  *
  *
  * Author: Colin Reed
@@ -9,6 +9,8 @@
  */
 
 #include <iostream>
+#include <ctype.h>
+//#include <algorithm>
 using namespace std;
 
 bool palindrome(string in) {
@@ -24,10 +26,10 @@ bool palindrome(string in) {
 }
 
 bool removeChar(char in) {
-  if(in == ' ') {
-      return true;
+  if(isalnum(in) || in == ' ') {
+      return false;
   } else
-    return false;
+    return true;
 
 }
 
@@ -36,18 +38,21 @@ int main() {
   string input;
   cin >> input;
 
-  //input = remove_if(input.begin(), input.end(), removeChar);
+  // input = remove_if(input.begin(), input.end(), isalnum);
 
-  for (size_t i = 0; i < input.length(); i++) {
+  for (int i = 0; i < input.length(); i++) {
     if (removeChar(input[i])) {
-      cout << input[i] << endl;
       input.erase(i,1);
     }
   }
 
   bool var = palindrome(input);
 
-  cout << var << endl;
+  if(var) {
+    cout << "TRUE" << endl;
+  } else {
+    cout << "FALSE" << endl;
+  }
 
   return 0;
 }
