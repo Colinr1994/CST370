@@ -9,6 +9,7 @@
  */
 
 #include <iostream>
+#include <chrono>
 using namespace std;
 
 
@@ -34,6 +35,8 @@ int main() {
     data[x][y] = true;
   }
 
+  auto start = chrono::high_resolution_clock::now();
+
   for(x=0;x<vertices;x++) {
     cout << x;
     for(y=0;y<vertices;y++) {
@@ -43,6 +46,9 @@ int main() {
     }
     cout << endl;
   }
+  auto diff = chrono::high_resolution_clock::now() - start;
+  auto t1 = chrono::duration_cast<chrono::nanoseconds>(diff);
+  cout << t1.count() << endl;
 
   return 0;
 }
