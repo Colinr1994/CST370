@@ -11,10 +11,21 @@
 #include <iostream>
 using namespace std;
 
+bool palindrome(string in) {
+  if (in.empty()) {
+    return 1;
+  } else {
+    if(in.back() == in.front()) {
+      palindrome("a");
+    } else { return 0;}
+  }
+}
+
 
 int main() {
+  bool var = palindrome("a");
 
-
+  cout << var;
 
   return 0;
 }
