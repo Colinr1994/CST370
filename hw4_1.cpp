@@ -54,7 +54,10 @@ class perm {
 int main() {
 	// testing input 
 	int input1 = 4;
-	vec 
+	string[input1] = {"Monetey", "LA", "SF", "SD"};  
+	
+	// Using vector of objects later. Better system but idk how to mke it work. 
+	//vector<perm*> permutations; 
 
 	return 1;
 }
