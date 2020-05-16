@@ -35,6 +35,7 @@
  */
 #include <iostream>
 #include <vector>
+#include <algorithm> 
 
 using namespace std;
 
@@ -42,22 +43,20 @@ using namespace std;
 /* perm class holds a permutation of the available vertices
  * 
  */
-class perm {
+class city {
 	public: 
-		//int index? 
-		vector<string> path;
-		int cost;
-		bool passed;
+		string name;
+		int index
 
 }
 
 int main() {
-	// testing input 
 	int input1 = 4;
 	string[input1] = {"Monetey", "LA", "SF", "SD"};  
 	
-	// Using vector of objects later. Better system but idk how to mke it work. 
-	//vector<perm*> permutations; 
+	for(int i=0; i<input1;i++) {
+		
+	}
 
 	return 1;
 }
