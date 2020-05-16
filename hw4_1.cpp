@@ -71,8 +71,11 @@ int main() {
 	
 	// I didn't need to do that. Array already has name and index
 	
+	do {
+		cout << names[0] << names[1] << names[2] << names[3] <<endl;
+  	} while ( next_permutation(names,names+4) );
 
-	cout << cities[2]->index << cities[2]->name << endl;	
+	//cout << cities[2]->index << cities[2]->name << endl;	
 
 	return 1;
 }
