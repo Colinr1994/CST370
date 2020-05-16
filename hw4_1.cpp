@@ -63,10 +63,10 @@ class Edge {
 		int cost;
 
 
-	Edge(string from, string to, int cost) {
-		from = from;
-		to = to;
-		cost = cost;
+	Edge(string fromFunc, string toFunc, int costFunc) {
+		from = fromFunc;
+		to = toFunc;
+		cost = costFunc;
 	}
 };
 
@@ -76,10 +76,27 @@ int main() {
 	int numCities = 4;
 	string cities[] = {"Monetey", "LA", "SF", "SD"};  
 	int numEdges = 12;
-	Edge edges[numEdges];
-	edges[0] = Edge("Monterey","LA",2);
-	
-	
 
+	vector<Edge> edges;
+	
+	for(i=0;i<numEdges;i++) {
+		edges.push_back(Edge("Monterey","LA",2));
+	}
+
+	do { 
+        cout << cities[numCities-1] <<endl; 
+    } while (next_permutation(cities, cities + numCities)); 
+
+
+	// What we have so far: 
+	// array of all cities 
+	// vector of all edges (objects)
+	// all city permutations
+	//
+	// What we need: 
+	// Complete the loop (connect end of permutation back to start)
+	// check if loop is valid (used edges exist)
+	// calculate cost of route
+	// display minimum cost route
 	return 1;
 }
