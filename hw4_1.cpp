@@ -66,7 +66,7 @@ class edge {
 		to = to;
 		cost = cost;
 	}
-}
+};
 
 int main() {
 
