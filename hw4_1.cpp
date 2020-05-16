@@ -40,16 +40,35 @@
 
 using namespace std;
 
+class Edge {
+	public:
+		string from;
+		string to;
+		int cost;
 
+	Edge(string f, string t, int c) {
+		from = f;
+		to = t;
+		cost = c;
+	}
+
+	Edge() {
+		from = "";
+		to = "";
+		cost = -1;
+	}
+	
+};
 
 int main() {
 
-	int i;
-	int numCities = 4;
+	int i, numCities, numEdges;
+	numCities = 4;
 	string cities[] = {"Monetey", "LA", "SF", "SD"};  
 	string startCity = cities[0];
-	int numEdges = 12;
-
+	
+	numEdges = 12;
+	Edge edges[12];  
 	
 	return 1;
 }
