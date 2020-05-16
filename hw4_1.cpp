@@ -30,51 +30,17 @@
  *
  * "Path:" 
  *
- *
+ * BRANCH - Simple. 
+ * Removing vectors and objects. 
  *
  */
 #include <iostream>
-#include <vector>
 #include <algorithm> 
 #include <functional>
 
 using namespace std;
 
 
-/* perm class holds a permutation of the available vertices
- * 
- */
-class City {
-	public: 
-		string name;
-		int index;
-
-
-	City(int ind, string nam) {
-		index = ind;
-		name = nam;
-	}
-
-};
-
-class Edge {
-		
-	public: 
-		string from;
-		string to;
-		int cost;
-
-
-	Edge(string fromFunc, string toFunc, int costFunc) {
-		from = fromFunc;
-		to = toFunc;
-		cost = costFunc;
-	}
-
-	string returnFromTo() {
-		return from+to;
-	}
-};
 
 int main() {
 
@@ -84,34 +50,6 @@ int main() {
 	string startCity = cities[0];
 	int numEdges = 12;
 
-	vector<Edge> edges;
-	
-	for(i=0;i<numEdges;i++) {
-		edges.push_back(Edge("Monterey","LA",2));
-	}
-
-	// What we have so far: 
-	// array of all cities 
-	// vector of all edges (objects)
-	// all city permutations
-	//
-	// What we need: 
-	// Complete the loop (connect end of permutation back to start)
-	// check if loop is valid (used edges exist)
-	// calculate cost of route
-	// display minimum cost route
-	
-	
-	int* p;
-	i=0;
-	// Permutation checking 
-	do {
-	// Checking if route is complete
-		vector<Edge>::iterator it= find_if(edges.begin(), edges.end(), 
-  		bind(&Edge::returnFromTo, std::placeholders::_1, cities[i]));
-	
-		i++;
-	} while (next_permutation(cities, cities + numCities));
 	
 	return 1;
 }
