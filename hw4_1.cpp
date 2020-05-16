@@ -46,7 +46,7 @@ using namespace std;
 class city {
 	public: 
 		string name;
-		int index
+		int index;
 
 
 	city(int ind, string nam) {
@@ -54,18 +54,20 @@ class city {
 		name = nam;
 	}
 
-}
+};
 
 int main() {
 
 	int i;
 	int input1 = 4;
-	string[input1] = {"Monetey", "LA", "SF", "SD"};  
-	vector<city> cities;
+	string names[] = {"Monetey", "LA", "SF", "SD"};  
+	vector<city*> cities;
 	
 	for(i=0; i<input1;i++) {
-				
+		cities.push_back(new city(i,names[i]));		
 	}
+
+	cout << cities[0]->name << endl;	
 
 	return 1;
 }
