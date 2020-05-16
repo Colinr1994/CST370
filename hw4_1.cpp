@@ -33,6 +33,8 @@
  * BRANCH - Simple. 
  * Removing vectors and objects. 
  *
+ * TSP needs to start and end with citys[0]. I need to remove the first city when generating the permutation. 
+ *
  */
 #include <iostream>
 #include <algorithm> 
@@ -62,13 +64,28 @@ class Edge {
 
 int main() {
 
-	int i, numCities, numEdges;
+	int i,j, numCities, numEdges;
 	numCities = 4;
 	string cities[] = {"Monetey", "LA", "SF", "SD"};  
 	string startCity = cities[0];
 	
+	string perm[numCities+1];
+	perm[numCities+1] = cities[0];
+
 	numEdges = 12;
 	Edge edges[12];  
-	
+
+	i=0;
+	do {
+		// For each loop here, cities array is generating a new loop. 
+		for(j=0;j<numCities;j++) {
+		cout << perm[numCities +1];
+		//cout << permutation[i];
+		}
+		
+		cout << endl << endl;
+		i++;
+	} while (next_permutation(cities + 1, cities + numCities));	
+
 	return 1;
 }
