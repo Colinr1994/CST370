@@ -43,25 +43,27 @@ using namespace std;
 /* perm class holds a permutation of the available vertices
  * 
  */
-class city {
+class City {
 	public: 
 		string name;
 		int index;
 
 
-	city(int ind, string nam) {
+	City(int ind, string nam) {
 		index = ind;
 		name = nam;
 	}
 
 };
 
-class edge {
+class Edge {
 	public: 
 		string from;
-		stirng to;
+		string to;
 		int cost;
-	edges(string from, string to, int cost) {
+
+
+	Edge(string from, string to, int cost) {
 		from = from;
 		to = to;
 		cost = cost;
@@ -74,21 +76,10 @@ int main() {
 	int numCities = 4;
 	string cities[] = {"Monetey", "LA", "SF", "SD"};  
 	int numEdges = 12;
-	int edges[]; //Incomplete
-	vector<city*> cities;
+	Edge edges[numEdges];
+	edges[0] = Edge("Monterey","LA",2);
 	
-	for(i=0; i<input1;i++) {
-		cities.push_back(new city(i,names[i]));		
-	}
 	
-	// Now I have all permutations. I need to calculate values and check
-	// viability to see if they are legal. 
-	
-	do {
-		cout << names[0] << names[1] << names[2] << names[3] <<endl;
-  	} while ( next_permutation(names,names+4) );
-
-	//cout << cities[2]->index << cities[2]->name << endl;	
 
 	return 1;
 }
