@@ -48,14 +48,23 @@ class city {
 		string name;
 		int index
 
+
+	city(int ind, string nam) {
+		index = ind;
+		name = nam;
+	}
+
 }
 
 int main() {
+
+	int i;
 	int input1 = 4;
 	string[input1] = {"Monetey", "LA", "SF", "SD"};  
+	vector<city> cities;
 	
-	for(int i=0; i<input1;i++) {
-		
+	for(i=0; i<input1;i++) {
+				
 	}
 
 	return 1;
