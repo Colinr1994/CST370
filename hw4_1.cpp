@@ -56,20 +56,33 @@ class city {
 
 };
 
+class edge {
+	public: 
+		string from;
+		stirng to;
+		int cost;
+	edges(string from, string to, int cost) {
+		from = from;
+		to = to;
+		cost = cost;
+	}
+}
+
 int main() {
 
 	int i;
-	int input1 = 4;
-	string names[] = {"Monetey", "LA", "SF", "SD"};  
+	int numCities = 4;
+	string cities[] = {"Monetey", "LA", "SF", "SD"};  
+	int numEdges = 12;
+	int edges[]; //Incomplete
 	vector<city*> cities;
 	
 	for(i=0; i<input1;i++) {
 		cities.push_back(new city(i,names[i]));		
 	}
 	
-	// Need to make permutations of indices
-	
-	// I didn't need to do that. Array already has name and index
+	// Now I have all permutations. I need to calculate values and check
+	// viability to see if they are legal. 
 	
 	do {
 		cout << names[0] << names[1] << names[2] << names[3] <<endl;
