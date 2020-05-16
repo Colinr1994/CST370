@@ -36,6 +36,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm> 
+#include <functional>
 
 using namespace std;
 
@@ -57,6 +58,7 @@ class City {
 };
 
 class Edge {
+		
 	public: 
 		string from;
 		string to;
@@ -67,6 +69,10 @@ class Edge {
 		from = fromFunc;
 		to = toFunc;
 		cost = costFunc;
+	}
+
+	string returnFromTo() {
+		return from+to;
 	}
 };
 
@@ -101,18 +107,9 @@ int main() {
 	// Permutation checking 
 	do {
 	// Checking if route is complete
-	//
-	// FOUND GOOD RESOURCE 
-	// https://stackoverflow.com/questions/15517991/search-a-vector-of-objects-by-object-attribute
-	// Checking it tomorrow. I'm tired. 
-		p = find(edges, edges+numEdges, edges.from==cities[i]);		
-
-		if (p != edges.end())
-			cout << "Element Found" << endl;
-		else
-			cout << "Element Not Found" << endl;
+		vector<Edge>::iterator it= find_if(edges.begin(), edges.end(), 
+  		bind(&Edge::returnFromTo, std::placeholders::_1, cities[i]));
 	
-
 		i++;
 	} while (next_permutation(cities, cities + numCities));
 	
