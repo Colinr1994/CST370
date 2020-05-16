@@ -66,8 +66,13 @@ int main() {
 	for(i=0; i<input1;i++) {
 		cities.push_back(new city(i,names[i]));		
 	}
+	
+	// Need to make permutations of indices
+	
+	// I didn't need to do that. Array already has name and index
+	
 
-	cout << cities[0]->name << endl;	
+	cout << cities[2]->index << cities[2]->name << endl;	
 
 	return 1;
 }
