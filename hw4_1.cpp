@@ -19,68 +19,56 @@
 
 using namespace std;
 
-class Edge {
-	public:
-		string from;
-		string to;
-		int cost;
+// Generalized input function. 
+void input(vector<vector<int>> &costs, vector<string> &names) {
+	int numNames, numEdges, i, cost;
+	string name;
 
-	Edge(string f, string t, int c) {
-		from = f;
-		to = t;
-		cost = c;
-	}
+	cin >> numNames;
+	costs.resize(numNames);
 
-	Edge() {
-		from = "";
-		to = "";
-		cost = -1;
+	for(i=0;i<numNames;i++) {
+		cin >> name;
+		names.push_back(name);		
 	}
 	
-};
+	cin >> numEdges;
+	
+}
+void read_graph(vector<vector<int>> & g)
+{
+    int num_of_vertices;
+    cin >> num_of_vertices;
+    
+    // Adjust the size of graph vector to hold all vertices.
+    g.resize(num_of_vertices);
+    
+    int num_of_edges;
+    cin >> num_of_edges;
 
-// search the vector. If the link exists, return cost. Else return -1
-int checkCircuit(string inFrom, string inTo, vector<Edge> vec) {
-
-	return 1;
+    int from;
+    int to;
+    
+    for (int i = 0; i < num_of_edges; i++) 
+    {
+        cin >> from;
+        cin >> to;
+        g[from].push_back(to);
+    }
 }
 
 
 int main() {
 
-	int i,j, numCities, totalCost, cost, bestCost;
-	bool validCircuit= true;
-	vector<string> cities, best;
-	cities.push_back("City1");
-	cities.push_back("City2");
-	cities.push_back("City3");
-	cities.push_back("City4");
-
-	vector<Edge> edges;
-	Edge workingEdge("City1","City2", 5);
-	edges.push_back(workingEdge);
-
-	cities.push_back(cities[0]); // Completing Circuit
+	vector<<int>> costs;
+	vector<string> names;
 	
-	do {	
-		totalCost=0;
-		for (i=0;i<cities.size();i++) {
+	input(costs, names);
 
-			cost = checkCircuit(cities[i],cities[i+1],edges);
-			if(cost==-1) {
-				validCircuit=false;
-			} else {
-				totalCost+= cost;
-			}
-		}
-		cout << totalCost << endl;		
-		if(validCircuit) {
-			//Is current cost minimum? Save circuit & cost
-			// if cost<bestCost -> best=cities;
-		}
+	do {	
+
 
 	} while (next_permutation(cities.begin()+1, cities.end()-1)); 
-	// doesn't permute beginning or end	
 
 	return 1;
 }
