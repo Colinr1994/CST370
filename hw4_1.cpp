@@ -42,25 +42,37 @@ void input(vector<vector<int>> &costs, vector<string> &names) {
 	int numEdges;
 	cin >> numEdges;
 	
-	int x,y;
+	int x,y,cost;
 	for(i=0;i<numEdges;i++) {
 		cin >> in;
 		x = findIndex(names,in);
 		cin >> in;
 		y = findIndex(names,in);
-		costs[x].push_back(y);
+		costs[x][y].push_back(cost);
 	}
 	
 }
 
+// Find the the two search strings and read the value in the vector array. If DNE, return -1
+int checkRoute(vector<vector<int>> costs,vector<string> names, string from, string to) {
+	int fromIndex = findIndex(names, from);
+	int toIndex = findIndex(names, to);
+	//int out = costs[fromIndex][toIndex];	
 
+	return 1;
+	// If link has no cost, and is not the same x and y...
+	//if(out == 0 && fromIndex != toIndex) {
+	//	return -1;
+	//} else {return out;};
+	
+}
 
 int main() {
 
 	vector<vector<int>> costs;
 	vector<string> names;
 	
-	//input(costs, names);
+	input(costs, names);
 
 	names.push_back("Monterey");
 	names.push_back("LA");
@@ -70,8 +82,21 @@ int main() {
 	// Change names into circuit 
 	names.push_back(names[0]);
 
+	int loopCost;
+	int totalCost=0;
+	bool circuitStatus = true;
 	do {	
-		// Calculate cost of circuit!  
+		totalCost =0;
+		// Calculate cost of permutation
+		for(int i=0;i<names.size(); i++) {
+			loopCost = checkRoute(costs,names,names[i],names[i+1]);
+			if(loopCost == -1) {circuitStatus = false;} else {totalCost += loopCost;} 
+			//cout << loopCost << endl;
+		}
+
+		if(circuitStatus) {
+			//Check totalCost and compare against current best.
+		}
 
 	} while (next_permutation(names.begin()+1, names.end()-1)); 
 
