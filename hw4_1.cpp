@@ -21,19 +21,29 @@ using namespace std;
 
 // Generalized input function. 
 void input(vector<vector<int>> &costs, vector<string> &names) {
-	int numNames, numEdges, i, cost;
-	string name;
 
+	int numNames;
 	cin >> numNames;
 	costs.resize(numNames);
+	names.resize(numNames);
 
 	for(i=0;i<numNames;i++) {
-		cin >> name;
-		names.push_back(name);		
+		cin >> in1;
+		names.push_back(in1);		
 	}
 	
+	int numEdges;
 	cin >> numEdges;
 	
+	string in;
+	int x,y;
+	for(i=0;i<numEdges;i++) {
+		cin >> in;
+		x = find(names.begin(),names.end(),in);
+		cin >> in;
+		y = find(names.begin(),names.end(),in);
+		costs[x].push_back(y);
+	}
 }
 void read_graph(vector<vector<int>> & g)
 {
