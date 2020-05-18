@@ -19,8 +19,13 @@
 
 using namespace std;
 
+
+int findIndex(vector<string> names, string term) {
+	auto it = find(names.begin(), names.end(), term);
+	return distance(names.begin(),it);
+}
+
 // Generalized input function. 
-/*
 void input(vector<vector<int>> &costs, vector<string> &names) {
 
 	int numNames,i;
@@ -28,27 +33,27 @@ void input(vector<vector<int>> &costs, vector<string> &names) {
 	costs.resize(numNames);
 	names.resize(numNames);
 
-	int in1;
+	string in;
 	for(i=0;i<numNames;i++) {
-		cin >> in1;
-		names.push_back(in1);		
+		cin >> in;
+		names.push_back(in);		
 	}
 	
 	int numEdges;
 	cin >> numEdges;
 	
-	string in;
 	int x,y;
 	for(i=0;i<numEdges;i++) {
 		cin >> in;
-		x = find(names.begin(),names.end(),in);
+		x = findIndex(names,in);
 		cin >> in;
-		y = find(names.begin(),names.end(),in);
+		y = findIndex(names,in);
 		costs[x].push_back(y);
 	}
 	
 }
-*/
+
+
 
 int main() {
 
@@ -62,14 +67,13 @@ int main() {
 	names.push_back("SF");
 	names.push_back("SD");  
 	
-	
-	auto it = find(names.begin(), names.end(), "SF");
-	int index = distance(names.begin(), it);
-	cout << index << endl;
-//	do {	
+	// Change names into circuit 
+	names.push_back(names[0]);
 
+	do {	
+		// Calculate cost of circuit!  
 
-//	} while (next_permutation(cities.begin()+1, cities.end()-1)); 
+	} while (next_permutation(names.begin()+1, names.end()-1)); 
 
 	return 1;
 }
