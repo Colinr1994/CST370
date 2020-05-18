@@ -67,14 +67,13 @@ int main() {
 		for (i=0;i<cities.size();i++) {
 
 			cost = checkCircuit(cities[i],cities[i+1],edges);
-			cout << cost << endl;
 			if(cost==-1) {
 				validCircuit=false;
 			} else {
 				totalCost+= cost;
 			}
 		}
-		
+		cout << totalCost << endl;		
 		if(validCircuit) {
 			//Is current cost minimum? Save circuit & cost
 			// if cost<bestCost -> best=cities;
