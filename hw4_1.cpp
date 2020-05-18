@@ -12,33 +12,10 @@
  * HackerRank: 
  */
 
-
-/* Notes: 
- *
- * Input: 
- *
- * 	Int -> number of vetices in the graph 
- *
- * 	string -> names of verices (First input is starting point)
- * 		(Always one word)
- *
- * 	int -> number of edges in the graph
- *
- * 	string? -> edge information. name1(Source) name2(dest) cost
- *
- * Output: 
- *
- * "Path:" 
- *
- * BRANCH - Simple. 
- * Removing vectors and objects. 
- *
- * TSP needs to start and end with citys[0]. I need to remove the first city when generating the permutation. 
- *
- */
 #include <iostream>
 #include <algorithm> 
 #include <functional>
+#include <vector>
 
 using namespace std;
 
@@ -62,30 +39,49 @@ class Edge {
 	
 };
 
+// search the vector. If the link exists, return cost. Else return -1
+int checkCircuit(string inFrom, string inTo, vector<Edge> vec) {
+
+	return 1;
+}
+
+
 int main() {
 
-	int i,j, numCities, numEdges;
-	numCities = 4;
-	string cities[] = {"Monetey", "LA", "SF", "SD"};  
-	string startCity = cities[0];
+	int i,j, numCities, totalCost, cost, bestCost;
+	bool validCircuit= true;
+	vector<string> cities, best;
+	cities.push_back("City1");
+	cities.push_back("City2");
+	cities.push_back("City3");
+	cities.push_back("City4");
+
+	vector<Edge> edges;
+	Edge workingEdge("City1","City2", 5);
+	edges.push_back(workingEdge);
+
+	cities.push_back(cities[0]); // Completing Circuit
 	
-	string perm[numCities+1];
-	perm[numCities+1] = cities[0];
+	do {	
+		totalCost=0;
+		for (i=0;i<cities.size();i++) {
 
-	numEdges = 12;
-	Edge edges[12];  
-
-	i=0;
-	do {
-		// For each loop here, cities array is generating a new loop. 
-		for(j=0;j<numCities;j++) {
-		cout << perm[numCities +1];
-		//cout << permutation[i];
+			cost = checkCircuit(cities[i],cities[i+1],edges);
+			cout << cost << endl;
+			if(cost==-1) {
+				validCircuit=false;
+			} else {
+				totalCost+= cost;
+			}
 		}
 		
-		cout << endl << endl;
-		i++;
-	} while (next_permutation(cities + 1, cities + numCities));	
+		if(validCircuit) {
+			//Is current cost minimum? Save circuit & cost
+			// if cost<bestCost -> best=cities;
+		}
+
+	} while (next_permutation(cities.begin()+1, cities.end()-1)); 
+	// doesn't permute beginning or end	
 
 	return 1;
 }
