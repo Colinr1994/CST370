@@ -19,8 +19,10 @@
 
 using namespace std;
 
-
+// input names vector and searchterm string 
+// return index
 int findIndex(vector<string> names, string term) {
+	//do {	} while (next_permutation(cities, cities + numCities));
 	auto it = find(names.begin(), names.end(), term);
 	return distance(names.begin(),it);
 }
@@ -60,10 +62,6 @@ int checkRoute(vector<vector<int>> costs,vector<string> names, string from, stri
 	//int out = costs[fromIndex][toIndex];	
 
 	return 1;
-	// If link has no cost, and is not the same x and y...
-	//if(out == 0 && fromIndex != toIndex) {
-	//	return -1;
-	//} else {return out;};
 	
 }
 
@@ -72,33 +70,21 @@ int main() {
 	vector<vector<int>> costs;
 	vector<string> names;
 	
-	input(costs, names);
+	//input(costs, names);
 
 	names.push_back("Monterey");
 	names.push_back("LA");
 	names.push_back("SF");
 	names.push_back("SD");  
-	
-	// Change names into circuit 
-	names.push_back(names[0]);
 
-	int loopCost;
-	int totalCost=0;
-	bool circuitStatus = true;
-	do {	
-		totalCost =0;
-		// Calculate cost of permutation
-		for(int i=0;i<names.size(); i++) {
-			loopCost = checkRoute(costs,names,names[i],names[i+1]);
-			if(loopCost == -1) {circuitStatus = false;} else {totalCost += loopCost;} 
-			//cout << loopCost << endl;
-		}
+	// Circuit represents circuits and holds indices from names. 
+	vector<int> circuit;
+	for(int i=0;i<names.size(); i++) {
+		circuit.push_back(i);
+	}
+	circuit.push_back(0);
 
-		if(circuitStatus) {
-			//Check totalCost and compare against current best.
-		}
-
-	} while (next_permutation(names.begin()+1, names.end()-1)); 
+	//do {	} while (next_permutation(names.begin()+1, names.end()-1)); 
 
 	return 1;
 }
