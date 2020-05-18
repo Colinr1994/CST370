@@ -20,13 +20,15 @@
 using namespace std;
 
 // Generalized input function. 
+/*
 void input(vector<vector<int>> &costs, vector<string> &names) {
 
-	int numNames;
+	int numNames,i;
 	cin >> numNames;
 	costs.resize(numNames);
 	names.resize(numNames);
 
+	int in1;
 	for(i=0;i<numNames;i++) {
 		cin >> in1;
 		names.push_back(in1);		
@@ -46,19 +48,28 @@ void input(vector<vector<int>> &costs, vector<string> &names) {
 	}
 	
 }
-
+*/
 
 int main() {
 
-	vector<<int>> costs;
+	vector<vector<int>> costs;
 	vector<string> names;
 	
 	//input(costs, names);
 
-	do {	
+	names.push_back("Monterey");
+	names.push_back("LA");
+	names.push_back("SF");
+	names.push_back("SD");  
+	
+	
+	auto it = find(names.begin(), names.end(), "SF");
+	int index = distance(names.begin(), it);
+	cout << index << endl;
+//	do {	
 
 
-	} while (next_permutation(cities.begin()+1, cities.end()-1)); 
+//	} while (next_permutation(cities.begin()+1, cities.end()-1)); 
 
 	return 1;
 }
