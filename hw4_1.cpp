@@ -28,32 +28,6 @@ int findIndex(vector<string> names, string term) {
 }
 
 // Generalized input function. 
-void input(vector<vector<int>> &costs, vector<string> &names) {
-
-	int numNames,i;
-	cin >> numNames;
-	costs.resize(numNames);
-	names.resize(numNames);
-
-	string in;
-	for(i=0;i<numNames;i++) {
-		cin >> in;
-		names.push_back(in);		
-	}
-	
-	int numEdges;
-	cin >> numEdges;
-	
-	int x,y,cost;
-	for(i=0;i<numEdges;i++) {
-		cin >> in;
-		x = findIndex(names,in);
-		cin >> in;
-		y = findIndex(names,in);
-		costs[x][y].push_back(cost);
-	}
-	
-}
 
 // Find the the two search strings and read the value in the vector array. If DNE, return -1
 int checkRoute(vector<vector<int>> costs,vector<string> names, string from, string to) {
@@ -70,13 +44,20 @@ int main() {
 	vector<vector<int>> costs;
 	vector<string> names;
 	
-	//input(costs, names);
-
+	int numCities = 4;
 	names.push_back("Monterey");
 	names.push_back("LA");
 	names.push_back("SF");
 	names.push_back("SD");  
+	
 
+	costs.resize(numCities);
+	for(int i=0; i<numCities; i++) {
+		costs[i].resize(numCities);
+	}
+
+	costs= {{0,2,5,7},{2,0,8,9},{5,8,0,1},{7,3,1,0}};
+		
 	// Circuit represents circuits and holds indices from names. 
 	vector<int> circuit;
 	for(int i=0;i<names.size(); i++) {
@@ -84,7 +65,39 @@ int main() {
 	}
 	circuit.push_back(0);
 
-	//do {	} while (next_permutation(names.begin()+1, names.end()-1)); 
+
+	bool connectFailed = false;
+	int totalCost;
+	vector<int> bestPerm;
+	int bestCost=10000;
+	do {
+		totalCost=0;
+		for(int i=0; i<circuit.size()-1;i++){
+			if(costs[circuit[i]][circuit[i+1]] ==0) {
+				// No Connection
+				cout << "Connection Fail " << endl;
+				connectFailed = true;
+			} else {
+				//Connection
+				totalCost += costs[i][i+1];
+			}
+
+		}
+		if(!connectFailed) {
+			if(bestCost > totalCost) {
+				bestCost = totalCost;
+				//bestPerm = circuit;
+				copy(circuit.begin(), circuit.end(), back_inserter(bestPerm)); 
+				cout << totalCost << endl;
+			}
+			// circuit is connected! 
+		}
+	} while (next_permutation(circuit.begin()+1, circuit.end()-1)); 
+
+
+	for(int i=0;i<circuit.size();i++) {
+		cout << names[bestPerm[i]] << endl;
+	}
 
 	return 1;
 }
