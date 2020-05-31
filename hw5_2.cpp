@@ -17,7 +17,9 @@ void firstApproach(vector<int> in) {
 	int i = 0;
 	int j = in.size()-1;
 	
-	while(i<j) {
+
+	// Why do I need the -1??
+	while(i<j-1) {
 	
 		if(in[i]<0) {
 			i++;
@@ -48,13 +50,13 @@ void secondApproach(vector<int> in) {
 	int j = 0;
 	
 	while(j<in.size()) {
-	
-		while(in[i]<0) {
+
+		// while i is negative && i is within array 
+		while(in[i]<0 && (i<in.size())) {
 			i++;
 		}
 
-		//Swap
-		if(in[j]<0) {
+		if(in[i]>0 && in[j]<0) {
 			int swap = in[i];
 			in[i] = in[j];
 			in[j] = swap;
@@ -81,13 +83,12 @@ int main () {
 		A.push_back(in);
 	}
 
-	vector<int> first;
+	vector<int> B;
 
-	copy(A.begin(),A.end(),back_inserter(first));
+	copy(A.begin(),A.end(),back_inserter(B));
 	
-	firstApproach(first);
-	
-	secondApproach(A);
+	firstApproach(A);
+	secondApproach(B);
 
 	return 0;
 }
