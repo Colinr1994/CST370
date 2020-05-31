@@ -41,21 +41,53 @@ void firstApproach(vector<int> in) {
 	cout << endl;
 }
 
-//void secondApproach(vector<int> in) {} 
+void secondApproach(vector<int> in) {
+	
+
+	int i = 0;
+	int j = 0;
+	
+	while(j<in.size()) {
+	
+		while(in[i]<0) {
+			i++;
+		}
+
+		//Swap
+		if(in[j]<0) {
+			int swap = in[i];
+			in[i] = in[j];
+			in[j] = swap;
+		}
+		j++;
+	}
+
+	for(int k=0;k<in.size();k++) {
+		cout << in[k] << " ";
+	}
+	cout << endl;
+} 
 
 int main () {
 	
-	int size = 8;
-	
-	vector<int> A;
-	
-	int input[size] = {5,-3,1,-9,-8,2,-4,7};
-	
+	int size;
+	cin >> size;
+
+
+	int in;
+	vector<int> A;	
 	for(int i=0;i<size;i++) {
-		A.push_back(input[i]);
+		cin >> in;
+		A.push_back(in);
 	}
+
+	vector<int> first;
+
+	copy(A.begin(),A.end(),back_inserter(first));
 	
-	firstApproach(A);
+	firstApproach(first);
+	
+	secondApproach(A);
 
 	return 0;
 }
