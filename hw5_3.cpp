@@ -31,7 +31,13 @@ remove node 0 -> search and remove all links origionating form zero. 1,2, and 3 
 */
 
 
-//void remove(vector<vector<int>> graph, int delete) {}
+void removeNode(vector<vector<int>> graph, int del) {
+	// First remove component from graph 
+	cout << "Test" << endl;	
+
+	// Second remove and cout all other instances of that link. 
+
+}
 
 int main () {
 	
@@ -62,13 +68,19 @@ int main () {
 		cout << "In-degree[" << i << "]:" << graph[i].size() << endl;	
 	}
 
+
+	// No Longer Safe to use numInd
+
 	cout << "Order:";
-	int iterator=0;
 	while(!graph.empty()) {
+		
 		// Delete node if subvector is empty
-		if(graph[iterator].empty()) {
-			
-		}	
+		for(int i=0;i<numInd;i++) {
+			if(graph[i].empty()) {
+				removeNode(graph, graph[i][0]);
+			}
+		}
+
 
 	}
 
