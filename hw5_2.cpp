@@ -17,7 +17,6 @@ void firstApproach(vector<int> in) {
 	int i = 0;
 	int j = in.size()-1;
 	
-
 	// Why do I need the -1??
 	while(i<j-1) {
 	
@@ -34,7 +33,6 @@ void firstApproach(vector<int> in) {
 			in[i] = in[j];
 			in[j] = swap;
 		}
-	
 	}
 
 	for(int k=0;k<in.size();k++) {
@@ -74,7 +72,6 @@ int main () {
 	
 	int size;
 	cin >> size;
-
 
 	int in;
 	vector<int> A;	
