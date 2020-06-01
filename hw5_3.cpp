@@ -9,7 +9,6 @@
 #include <vector> 
 using namespace std;
 
-//void remove(vector<vector<int>> graph, int delete) {}
 
 
 /*
@@ -30,6 +29,9 @@ For sample run zero:
 
 remove node 0 -> search and remove all links origionating form zero. 1,2, and 3 would all have links removed. 
 */
+
+
+//void remove(vector<vector<int>> graph, int delete) {}
 
 int main () {
 	
@@ -53,8 +55,22 @@ int main () {
 		int to = input[i+1];
 		graph[to].push_back(from);
 	}
-	cout << graph[3][2] << endl;	
+	//Graph sucessfully stored. 
+	
+	//Display in-degree values
+	for(int i=0;i<numInd;i++) {
+		cout << "In-degree[" << i << "]:" << graph[i].size() << endl;	
+	}
 
+	cout << "Order:";
+	int iterator=0;
+	while(!graph.empty()) {
+		// Delete node if subvector is empty
+		if(graph[iterator].empty()) {
+			
+		}	
+
+	}
 
 	return 0;
 }
