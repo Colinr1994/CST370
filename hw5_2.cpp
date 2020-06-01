@@ -52,16 +52,16 @@ void secondApproach(vector<int> in) {
 	while(j<in.size()) {
 
 		// while i is negative && i is within array 
-		while(in[i]<0 && (i<in.size())) {
+		if(in[i]<0) {
 			i++;
 		}
+		j++;
 
 		if(in[i]>0 && in[j]<0) {
 			int swap = in[i];
 			in[i] = in[j];
 			in[j] = swap;
 		}
-		j++;
 	}
 
 	for(int k=0;k<in.size();k++) {
