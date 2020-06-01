@@ -49,7 +49,6 @@ void secondApproach(vector<int> in) {
 	
 	while(j<in.size()) {
 
-		// while i is negative && i is within array 
 		if(in[i]<0) {
 			i++;
 		}
