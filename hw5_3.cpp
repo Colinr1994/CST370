@@ -69,7 +69,7 @@ int main () {
 		cout << "In-degree[" << i << "]:" << graph[i].size() << endl;
 	}
 
-	// No Longer Safe to use numInd
+	// No Longer Safe to use numInd or numEdg
 
 	cout << "Order:";
 	while(!graph.empty()) {

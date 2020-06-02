@@ -48,7 +48,8 @@ void secondApproach(vector<int> in) {
 	int j = 0;
 	
 	while(j<in.size()) {
-
+	
+		// Maybe this should be while? Needs to be behind j.
 		if(in[i]<0) {
 			i++;
 		}
