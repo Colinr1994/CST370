@@ -6,3 +6,8 @@
  * Date: 6/3/2020
  * HackerRank: 
  */
+
+int main () {
+
+	return 0;
+}
