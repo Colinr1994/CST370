@@ -4,7 +4,7 @@
  * Author: Colin Reed
  * ID:1234
  * Date: 5/31/2020
- * HackerRank:
+ * HackerRank: https://www.hackerrank.com/contests/cst370-su20-hw5/challenges/kahns-topological-sort/submissions/code/1324024007
  */
 
 #include <iostream>
@@ -43,14 +43,10 @@ Update: 2/6 - vec<vec<>> not working out well. Empty vectors are causing me issu
 int main () {
 
 	int numInd;
-	//numInd = 4;
 	cin >> numInd;
 
 	int numEdg;
-	//numEdg = 5;
 	cin >> numEdg;
-
-	//int input[] = {0,1,0,2,0,3,1,3,2,3};
 
 	// Graph holds source of incoming links.
 	vector<vector<int>> graph;
