@@ -43,14 +43,14 @@ Update: 2/6 - vec<vec<>> not working out well. Empty vectors are causing me issu
 int main () {
 
 	int numInd;
-	numInd = 4;
-	//cin >> numInd;
+	//numInd = 4;
+	cin >> numInd;
 
 	int numEdg;
-	numEdg = 5;
-	//cin >> numEdg;
+	//numEdg = 5;
+	cin >> numEdg;
 
-	int input[] = {0,1,0,2,0,3,1,3,2,3};
+	//int input[] = {0,1,0,2,0,3,1,3,2,3};
 
 	// Graph holds source of incoming links.
 	vector<vector<int>> graph;
@@ -64,10 +64,9 @@ int main () {
 	
 	graph.resize(numInd);
 
-	// Need to revise for final input
 	for(int i=0;i<numEdg*2;i+=2) {
-		int from = input[i];
-		int to = input[i+1];
+		int from, to;
+		cin >> from >> to;
 		graph[to].push_back(from);
 	}
 
