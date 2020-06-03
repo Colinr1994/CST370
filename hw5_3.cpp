@@ -29,16 +29,13 @@ For sample run zero:
       2
 
 remove node 0 -> search and remove all links origionating form zero. 1,2, and 3 would all have links removed.
+
+Update: 2/6 - vec<vec<>> not working out well. Empty vectors are causing me issues. Switching to array. 
+
 */
 
 
-void removeNode(vector<vector<int>> graph, int del) {
-	// First remove component from graph
-	cout << "Test" << endl;
-
-	// Second remove and cout all other instances of that link.
-
-}
+//void removeNode(vector<vector<int>> graph, int del) { }
 
 int main () {
 
@@ -54,6 +51,14 @@ int main () {
 
 	// Graph holds source of incoming links.
 	vector<vector<int>> graph;
+
+	int graph2 [numInd][numInd];
+	for(int i=0;i<numInd;i++) {
+		for(int j=0;j<numInd;j++) {
+			graph2[i][j] = -1;
+		}
+	}
+	
 	graph.resize(numInd);
 
 	// Need to revise for final input
@@ -62,7 +67,6 @@ int main () {
 		int to = input[i+1];
 		graph[to].push_back(from);
 	}
-	//Graph sucessfully stored.
 
 	//Display in-degree values
 	for(int i=0;i<numInd;i++) {
@@ -72,17 +76,13 @@ int main () {
 	// No Longer Safe to use numInd or numEdg
 
 	cout << "Order:";
-	while(!graph.empty()) {
-
-		// Delete node if subvector is empty
-		for(int i=0;i<numInd;i++) {
-			if(graph[i].empty()) {
-				//removeNode(graph, graph[i][0]);
+	
+		for(int i =0; i<numInd;i++) {
+			for(intj=0;j<numInd;j++) {
+			
 			}
 		}
 
-
-	}
 
 	return 0;
 }
