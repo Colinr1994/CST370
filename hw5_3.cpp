@@ -34,7 +34,10 @@ Update: 2/6 - vec<vec<>> not working out well. Empty vectors are causing me issu
 
 */
 
-
+// Function goals: 
+// Remove node from graph
+// Print removed node (index or value??)
+// Remove links coming from removed node 
 //void removeNode(vector<vector<int>> graph, int del) { }
 
 int main () {
@@ -77,12 +80,5 @@ int main () {
 
 	cout << "Order:";
 	
-		for(int i =0; i<numInd;i++) {
-			for(intj=0;j<numInd;j++) {
-			
-			}
-		}
-
-
 	return 0;
 }

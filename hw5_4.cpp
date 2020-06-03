@@ -4,7 +4,7 @@
  * Author: Colin Reed
  * ID:1234
  * Date: 6/1/2020
- * HackerRank:
+ * HackerRank: https://www.hackerrank.com/contests/cst370-su20-hw5/challenges/connect-components/submissions/code/1324001381
  */
 
 #include <iostream>

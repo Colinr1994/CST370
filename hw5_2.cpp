@@ -4,7 +4,7 @@
  * Author: Colin reed
  * ID:1234
  * Date: 5/30/2020
- * HackerRank:
+ * HackerRank: https://www.hackerrank.com/contests/cst370-su20-hw5/challenges/partitioning-numbers/submissions/code/1323984113
  */
 
 #include <iostream>

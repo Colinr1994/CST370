@@ -4,7 +4,7 @@
  * Author: Colin Reed
  * ID: 1234
  * Date: 5/30/2020
- * HackerRank:
+ * HackerRank: https://www.hackerrank.com/contests/cst370-su20-hw5/challenges/divide-and-conquer-max/submissions/code/1323952879
  */
 
 #include <iostream> 
